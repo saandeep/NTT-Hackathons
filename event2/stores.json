@@ -1,0 +1,156 @@
+[
+	{
+		"location":{
+			"latitude":35.648804,
+			"longitude":139.712639,
+			"displayAddress":"東京都渋谷区広尾1-3-13 ハイネス恵比寿"
+			},
+		"storeNumber":201,
+		"name":"一風堂 恵比寿店",
+		"lateNight":true,
+		"premium":false,
+		"hours":[
+			"月〜木/11:00～翌3:00",
+			"金土・祝前日/11:00～翌4:00",
+			"日祝/11:00～翌2:00"
+		]
+	},
+	{
+		"location":{
+			"latitude":35.682255,
+			"longitude":139.698231,
+			"displayAddress":"東京都渋谷区代々木1-45-4 山陽ビル1F"
+			},
+		"storeNumber":202,
+		"name":"一風堂.MISO 代々木店",
+		"lateNight":false,
+		"premium":true,
+		"hours":[
+			"月～木/11:00～翌1:00",
+			"金土・祝前日/11:00～翌1:00",
+			"日祝/11:00～0:00"
+		]
+	},
+	{
+		"location":{
+			"latitude":35.710344,
+			"longitude":139.712462,
+			"displayAddress":"東京都新宿区西早稲田2-15-7"
+			},
+		"storeNumber":203,
+		"name":"一風堂 高田馬場店",
+		"lateNight":false,
+		"premium":false,
+		"hours":[
+			"11:00〜翌2:00"
+		]
+	},
+	{
+		"location":{
+			"latitude":35.623824,
+			"longitude":139.72255,
+			"displayAddress":"東京都品川区西五反田1-25-5"
+			},
+		"storeNumber":206,
+		"name":"一風堂 五反田店",
+		"lateNight":true,
+		"premium":false,
+		"hours":[
+			"月～金/7:00～9:00、11:00～翌4:00",
+			"土日祝/11:00～翌4:00"
+		]
+	},
+	{
+		"location":{
+			"latitude":35.704111,
+			"longitude":139.580937,
+			"displayAddress":"東京都武蔵野市吉祥寺本町1-18-1 吉祥寺ニュープラザビルB1F"
+			},
+		"storeNumber":207,
+		"name":"一風堂 吉祥寺店",
+		"lateNight":true,
+		"premium":false,
+		"hours":[
+			"11:00～翌4:00"
+		]
+	},
+	{
+		"location":{
+			"latitude":35.670625,
+			"longitude":139.768384,
+			"displayAddress":"東京都中央区銀座3-11-14 第二中山ビル"
+			},
+		"storeNumber":208,
+		"name":"一風堂 銀座店",
+		"lateNight":false,
+		"premium":false,
+		"hours":[
+			"月～木/11:00～翌2:00",
+			"金土・祝前日/11:00～翌3:00",
+			"日祝/11:00～翌1:00"
+		]
+	},
+	{
+		"location":{
+			"latitude":35.663756,
+			"longitude":139.732168,
+			"displayAddress":"東京都港区六本木4-9-11 第2小田切ビル1F"
+			},
+		"storeNumber":210,
+		"name":"一風堂 六本木店",
+		"lateNight":true,
+		"premium":false,
+		"hours":[
+			"月～木・土・祝前日/11:00～翌4:00",
+			"金/11:00～翌5:00",
+			"日祝/11:00～翌1:00"
+		]
+	},
+	{
+		"location":{
+			"latitude":35.666966,
+			"longitude":139.71505,
+			"displayAddress":"東京都港区南青山3-8-37 第２宮忠ビルB1"
+			},
+		"storeNumber":211,
+		"name":"一風堂 南青山店",
+		"lateNight":false,
+		"premium":false,
+		"hours":[
+			"月～木/11:00～24:00",
+			"金土・祝前日/11:00～翌1:00",
+			"日祝/11:00～22:00"
+		]
+	},
+	{
+		"location":{
+			"latitude":35.679113,
+			"longitude":139.763137,
+			"displayAddress":"東京都千代田区丸の内2-6-1 丸の内ブリックスクエアB1"
+			},
+		"storeNumber":214,
+		"name":"一風堂 Marunouchi",
+		"lateNight":false,
+		"premium":true,
+		"hours":[
+			"月～木・金土・祝前日/11:00～23:00",
+			"(22:30ラストオーダー)",
+			"日祝/11:00～22:00",
+			"(21:30ラストオーダー)"
+		]
+	},
+	{
+		"location":{
+			"latitude":35.709913,
+			"longitude":139.810768,
+			"displayAddress":"東京都墨田区押上1-1-2　東京スカイツリータウン・ソラマチ3F"
+			},
+		"storeNumber":217,
+		"name":"IPPUDO NOODLE EXPRESS 東京ソラマチ店",
+		"lateNight":false,
+		"premium":true,
+		"hours":[
+			"10:00〜21:00"
+		]
+	}
+]

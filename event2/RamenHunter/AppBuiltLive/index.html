@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+        <title>
+        </title>
+        <link rel="stylesheet" href="https://s3.amazonaws.com/codiqa-cdn/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
+        <link rel="stylesheet" href="my.css" />
+        <script src="https://s3.amazonaws.com/codiqa-cdn/jquery-1.7.2.min.js">
+        </script>
+        <script src="https://s3.amazonaws.com/codiqa-cdn/mobile/1.2.0/jquery.mobile-1.2.0.min.js">
+        </script>
+        
+      <script src="https://raw.github.com/apigee/usergrid-javascript-sdk/0.9.10/usergrid.SDK.js"></script>
+        <!-- User-generated css -->
+        <style>
+        </style>
+        <!-- User-generated js -->
+        <script>
+            try {
+              
+              
+
+    $(function() {
+      //alert("getting the location");
+      navigator.geolocation.getCurrentPosition(onLocationSuccess, onLocationFailure);
+
+    });
+    
+              function onLocationSuccess(location){
+                //alert("got the location");
+                var latlong = location.coords.latitude + "," + location.coords.longitude;
+                alert(latlong);
+                var newMapURL = "https://maps.googleapis.com/maps/api/staticmap?center="+latlong+"&zoom=10&size=288x200&markers="+latlong+"&sensor=false";
+                $("#map").attr("src", newMapURL);
+                
+                //Initialize the App Services
+Usergrid.ApiClient.init("dc_esticks@apigee.com", "sandbox");
+                alert("initialized app services");
+                //Get handle to the 'stores' collection
+                var stores = new Usergrid.Collection("stores");
+                
+                //filter or query based on location
+                stores.setQueryParams({"ql":"select * where location within 15000 of "+ latlong});
+                               
+                stores.fetch( function(response) {
+                  var count = 1;
+                  while(stores.hasNextEntity()) {
+                    renderStore(stores.getNextEntity(), count);
+                    count++;
+                  }
+                });
+                
+              }
+              function onLocationFailure(){
+                alert("can not obtain the location");
+              }
+              
+              function renderStore(store, label) {
+                  var coords = store.get('location').latitude+","+store.get('location').longitude;
+                  // Update the map
+                var src =  $("#map").attr('src') + "&markers=color:blue|label:"+label+"|"+coords;
+
+                // Add a list divider for the premium and lateNight results
+                $("#map").attr('src', src);
+                // Append to the list of results
+                $("#list").append('<li><a href="#page'+store.get('storeNumber')+'" data-role="button" data-transition="slide">'+store.get('name')+'</a><span class="ui-li-count ui-btn-corner-all">'+label+'</span></li>');
+                
+
+                // Necessary for the listview to render correctly
+                $("#list").listview('refresh');
+                
+                
+                $('body').append('<div data-role="page" id="page'+store.get('storeNumber')+'"><div data-theme="b" data-role="header" data-position="fixed"><h3>'+store.get('name')+'</h3><a data-role="button" data-rel="back" data-icon="arrow-l" data-iconpos="left"class="ui-btn-left">Results</a></div><img id="map" src="https://maps.googleapis.com/maps/api/staticmap?scale=2&center='+coords+'+&zoom=14&size='+window.innerWidth+'x200&markers='+coords+'&sensor=false" height="200"><div data-role="content"><div><p><b>Address</b><br/>'+store.get('location').displayAddress+'</p><p><b>Opening Hours</b><br/>'+store.get('hours').join('<br/>')+'</p></div></div></div>');
+                  
+              }
+              
+
+  } catch (error) {
+    console.error("Your javascript has an error: " + error);
+  }
+        </script>
+    </head>
+    <body>
+        <!-- Home -->
+        <div data-role="page" id="page1">
+            <div data-theme="a" data-role="header">
+                <h3>
+                    Ramen Finder
+                </h3>
+            </div>
+            <div data-role="content">
+                <img id="map" src="https://maps.googleapis.com/maps/api/staticmap?center=Tokyo&amp;zoom=14&amp;size=288x200&amp;markers=Tokyo&amp;sensor=false" width="288" height="200" />
+                <ul id="list" data-role="listview" data-divider-theme="b" data-inset="true">
+                    <li data-role="list-divider" role="heading">
+                        Nearest Ramen Stores
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+    </body>
+</html>
+
